@@ -1,3 +1,8 @@
+// Grade Calculator
+// CSE210
+// Tarin James
+// Calculates the grade the user provides
+
 using System;
 
 class Program

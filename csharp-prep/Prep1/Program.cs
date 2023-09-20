@@ -1,3 +1,8 @@
+// Name Teller
+// CSE 210
+// Tarin James
+// User types first and last name and the program reads it back
+
 using System;
 
 class Program
