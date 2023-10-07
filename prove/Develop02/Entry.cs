@@ -1,8 +1,8 @@
 using System;
 
 public class Entry {
-    public string date = DateTime.Now.ToShortDateString();
+    public string _date = DateTime.Now.ToShortDateString();
 
-    public string prompt;
-    public string response;
+    public string _prompt;
+    public string _response;
 }
