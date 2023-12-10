@@ -2,10 +2,9 @@ public abstract class tjGoal
 {
     public string tjgoalName;
     public string tjdescription;
-    public bool tjisCompleted;
-
-    public string tjcheckMark = "[ ]";
     public string tjgoalList;
+    public string tjgoalImportance;
+    public string tjgoalType;
 
     public List<string> SaveToList(List<string> goalList){
         goalList.Add(tjgoalList);

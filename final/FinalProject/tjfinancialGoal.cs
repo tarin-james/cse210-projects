@@ -8,9 +8,8 @@ public class tjfinancialGoal : tjGoal
         tjgoalName = Console.ReadLine();
         Console.Write("What do you hope to accompish with this goal? ");
         tjdescription = Console.ReadLine();
-        tjisCompleted = false;
 
-        tjgoalList = tjgoalType + tjgoalName + "," + tjdescription + "," + tjisCompleted;
+        tjgoalList = tjgoalType + tjgoalName + "," + tjdescription;
     }
 
     public override void ewAutomaticLoad(string automaticAddToList)
@@ -22,33 +21,23 @@ public class tjfinancialGoal : tjGoal
         {
             tjdataList.Add(word);
         }
+        tjgoalType = tjsplitData[0];
         tjgoalName = tjsplitData[1];
         tjdescription = tjsplitData[2];
-        tjisCompleted = bool.Parse(tjsplitData[4]);
+      
 
-        tjgoalList = tjgoalType + tjgoalName + "," + tjdescription + "," + tjisCompleted;
+        tjgoalList = tjgoalType + "," + tjgoalName + "," + tjdescription;
     }
 
 
     public override string tjdisplayGoal()
     {
-        return $"{tjcheckMark} {tjgoalName} ({tjdescription})";
+        return $"{tjgoalType} {tjgoalName} ({tjdescription})";
     }
 
     public override string tjgoalToString()
     {
-        return $"{tjgoalType}:{tjgoalName},{tjdescription},{tjisCompleted}\n";
-    }
-
-    public  int tjrecordEvent()
-    {
-        if (!tjisCompleted)
-        {
-            tjisCompleted = true;
-            tjcheckMark = "[X]";
-        }
-        Console.WriteLine("\nYou've accomplished this goal already");
-        return 0;
+        return $"{tjgoalType},{tjgoalName},{tjdescription}\n";
     }
 
 }

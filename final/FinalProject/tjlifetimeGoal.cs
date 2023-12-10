@@ -1,15 +1,15 @@
 public  class tjlifetimeGoal : tjGoal
 {
-    public string ewgoalType = "EternalGoal"; 
+    public string tjgoalType = "LifetimeGoal"; 
     public override void tjgoalCreation()
     {
         Console.Write("What is the name of your goal? ");
         tjgoalName = Console.ReadLine();
         Console.Write("What is a short description of your goal? ");
         tjdescription = Console.ReadLine();
-        tjisCompleted = false;
-
-        tjgoalList =  ewgoalType + tjgoalName + "," + tjdescription;
+        Console.Write("On a scale from 1 - 10, how important is this goal to you? ");
+        tjgoalImportance = Console.ReadLine();
+        tjgoalList =  tjgoalType + "," + tjgoalName + "," + tjdescription + "," + tjgoalImportance;
     }
     public override void ewAutomaticLoad(string automaticAddToList)
     {   
@@ -19,23 +19,24 @@ public  class tjlifetimeGoal : tjGoal
         foreach (var word in tjsplitData){
             tjdataList.Add(word);
         }
+        tjgoalType = tjsplitData[0];
         tjgoalName = tjsplitData[1];
         tjdescription = tjsplitData[2];
-         = int.Parse(tjsplitData[3]);
+        tjgoalImportance = tjsplitData[3];
 
-        tjgoalList = ewgoalType + tjgoalName + "," + tjdescription;
+        tjgoalList = tjgoalType + "," + tjgoalName + "," + tjdescription + "," + tjgoalImportance;
     }
     
 
     public override string tjgoalToString()
     {
-        return  $"{tjgoalName} ({tjdescription})";
+        return  $"{tjgoalType},{tjgoalName},{tjdescription},{tjgoalImportance}";
     }
-
-    public override string tjgoalToString()
+        public override string tjdisplayGoal()
     {
-        return $"{ewgoalType}:{tjgoalName},{tjdescription}\n";
+        return  $"{tjgoalType} {tjgoalName} ({tjdescription}) {tjgoalImportance}/10";
     }
 
+  
 
 }
